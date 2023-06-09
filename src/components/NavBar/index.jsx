@@ -1,34 +1,35 @@
 import React from "react";
 import CartWidget from "../CartWidget";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const NavBar = () => {
   return (
     <header className="container-header">
-      <div className="container-navBar-logo">
+      <Link to="/" className="container-navBar-logo">
         <img
           src="../../images/logo_lol_encabezado.png"
           alt="Logo League of Legends"
           className="logo-container"
         />
         <p className="text-navBar">League of Legends</p>
-      </div>
+      </Link>
       <nav className="header-container">
         <ul className="nav-container">
           <li className="list">
-            <a className="text-navBar" href="#">
+            <Link className="text-navBar" to="/category/TiendaDeCampeones">
               Tienda de campeones
-            </a>
+            </Link>
           </li>
           <li className="list">
-            <a className="text-navBar" href="#">
+            <Link className="text-navBar" to="/category/Esport">
               Esport
-            </a>
+            </Link>
           </li>
           <li className="list">
-            <a className="text-navBar" href="#">
+            <Link className="text-navBar" to="/category/Entretenimiento">
               Entretenimiento
-            </a>
+            </Link>
           </li>
         </ul>
         <CartWidget />

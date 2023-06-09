@@ -1,0 +1,38 @@
+.container-prop {
+    background-color: #0f1519;
+}
+
+.prop {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #0f1519;
+    color: #f9f9f9;
+    margin: 0px;
+    padding: 30px;
+    text-transform: uppercase;
+}
+
+.video-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #0f1519;
+}
+
+@keyframes animation {
+    50% {
+        background-color: rgb(181, 138, 77);
+        color: #0f1519;
+    }
+
+    ;
+}
+
+.animate {
+    animation-name: animation;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-delay: 1.2s;
+    animation-timing-function: ease-in-out;
+    padding: 15px;
+}

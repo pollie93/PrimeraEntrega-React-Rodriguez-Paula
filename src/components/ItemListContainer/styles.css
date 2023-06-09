@@ -18,6 +18,46 @@
     background-color: #0f1519;
 }
 
+.container-cards-champ {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 25px;
+    background-color: #0f1519;
+    padding: 25px 0px;
+}
+
+.champion-card {
+    background-color: rgb(6, 28, 37);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.champion-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: #2a7080;
+}
+
+.champion-name {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    font-weight: 800;
+    color: #f2f0f0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 0;
+}
+
+.card {
+    margin: 0 auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
 @keyframes animation {
     50% {
         background-color: rgb(181, 138, 77);
