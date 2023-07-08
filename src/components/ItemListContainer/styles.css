@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
+    align-items: center;
 }
 
 .champion-card:hover {
@@ -48,6 +49,7 @@
     font-weight: 800;
     color: #f2f0f0;
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 2px;
     padding: 5px 0;
 }
@@ -71,4 +73,46 @@
     animation-delay: 1.2s;
     animation-timing-function: ease-in-out;
     padding: 15px;
+}
+
+.add-button-card-container {
+    border-radius: 20px;
+    padding: 18px;
+    margin: 18px;
+    border: none;
+    background-color: rgb(181, 138, 77);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+.finalize-purchase {
+    border-radius: 20px;
+    padding: 18px;
+    margin: 18px;
+    border: none;
+    background-color: rgb(181, 138, 77);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+.finalize-purchase:hover {
+    cursor: pointer;
+}
+
+.add-button-card-container:hover {
+    background-color: rgb(6, 28, 37);
+    font-weight: 800;
+    cursor: pointer;
+    transform: scale(1.10);
+    color: #f2f0f0;
+    letter-spacing: 2.1px;
+
+}
+
+.link {
+    text-decoration: none;
 }

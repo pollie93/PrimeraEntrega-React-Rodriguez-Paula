@@ -1,0 +1,10 @@
+.full-screen {
+    height: 100vh;
+    border-radius: 0;
+}
+
+.full-screen:hover {
+    transform: scale(1);
+    background-color: rgb(6, 28, 37);
+    pointer-events: none;
+}
