@@ -12,7 +12,7 @@ import { collection, query, getDocs } from "firebase/firestore";
 const App = () => {
   const [champsInCart, setChampsInCart] = useState([]);
   const [champsArray, setChampsArray] = useState([]);
-
+  console.log("champsInCart", champsInCart);
   const getDatabase = async () => {
     const q = query(collection(db, "champions"));
     const querySnapshot = await getDocs(q);
@@ -30,7 +30,7 @@ const App = () => {
   const addToCart = (champion) => {
     setChampsInCart([...champsInCart, champion]);
   };
-
+  const setNewCart = (newCart) => setChampsInCart(newCart);
   const deleteCart = () => {
     setChampsInCart([]);
   };
@@ -47,7 +47,12 @@ const App = () => {
         <Route
           path="/category/:id"
           element={
-            <ItemListContainer champions={champsArray} addToCart={addToCart} />
+            <ItemListContainer
+              champsInCart={champsInCart}
+              champions={champsArray}
+              addToCart={addToCart}
+              setNewCart={setNewCart}
+            />
           }
         />
         <Route

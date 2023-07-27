@@ -87,6 +87,9 @@
     letter-spacing: 2px;
     font-size: 15px;
 }
+.counts-container {
+    display: flex;
+}
 .finalize-purchase {
     border-radius: 20px;
     padding: 18px;

@@ -12,6 +12,16 @@ const CartWidget = ({ champsInCart, deleteCart }) => {
     setShowCart(!showCart);
   };
 
+  const groupChamps = () => {
+    return champsInCart.reduce((accum, champ) => {
+      const champInAccum = accum.findIndex(
+        (cha) => cha.championName === champ.championName
+      );
+      if (champInAccum > -1) {
+      }
+    }, []);
+  };
+
   const totalCost = champsInCart.reduce((accum, champ) => {
     accum = accum + champ.championCost;
     return accum;
