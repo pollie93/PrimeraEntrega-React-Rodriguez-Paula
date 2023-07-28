@@ -29,16 +29,11 @@
     color: #f2f0f0;
 }
 
-.cart-checkout-container {
+.cart-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     margin: 30px;
     background-color: #2a7080;
-    position: absolute;
-    top: 7%;
-    left: 75%;
-    z-index: 50;
 }
 
 .cart-checkout-header {
@@ -69,7 +64,6 @@
     font-weight: 600;
     letter-spacing: 2px;
     line-height: 25px;
-    color: white;
 }
 
 .cart-full-blue-essence {
@@ -85,8 +79,9 @@
     margin-top: 15px;
 }
 
-.cart-checkout-image {
-    width: 30%;
+.cart-image {
+    width: 10%;
+    margin-right: 10px;  
 }
 
 .finish-purchase {

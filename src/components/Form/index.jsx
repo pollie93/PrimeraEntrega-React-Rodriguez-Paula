@@ -4,7 +4,7 @@ import { db } from "../../firebase/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import "./styles.css";
 
-const Form = () => {
+const Form = ({deleteCart}) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
 
@@ -26,7 +26,7 @@ const Form = () => {
       title: "Compra finalizada!",
       text: `Tu número de comprobante es: ${addRef.id}`,
     });
-
+    deleteCart()
     setEmail("");
     setNombre("");
   };

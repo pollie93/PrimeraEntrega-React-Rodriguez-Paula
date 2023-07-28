@@ -20,7 +20,7 @@
 
 .container-cards-champ {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 25px;
     background-color: #0f1519;

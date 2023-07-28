@@ -3,7 +3,7 @@ import CartWidget from "../CartWidget";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-const NavBar = ({ champsInCart, deleteCart }) => {
+const NavBar = ({ champsInCart, deleteCart, handleDeleteChampion }) => {
   return (
     <header className="container-header">
       <Link to="/" className="link container-navBar-logo">
@@ -21,18 +21,8 @@ const NavBar = ({ champsInCart, deleteCart }) => {
               Tienda de campeones
             </Link>
           </li>
-          <li className="list">
-            <Link className="text-navBar" to="/category/Esport">
-              Esport
-            </Link>
-          </li>
-          <li className="list">
-            <Link className="text-navBar" to="/category/Entretenimiento">
-              Entretenimiento
-            </Link>
-          </li>
         </ul>
-        <CartWidget champsInCart={champsInCart} deleteCart={deleteCart} />
+        <CartWidget champsInCart={champsInCart} deleteCart={deleteCart} handleDeleteChampion={handleDeleteChampion}/>
       </nav>
     </header>
   );

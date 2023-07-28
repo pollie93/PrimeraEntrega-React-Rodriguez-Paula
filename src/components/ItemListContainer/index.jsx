@@ -5,22 +5,9 @@ const ItemListContainer = ({
   champsInCart,
   champions,
   addToCart,
-  setNewCart,
+  handleDeleteChampion,
 }) => {
-  const handleDeleteChampion = (champ) => {
-    if (!champsInCart?.length) return null;
-    const newChampsInCart = [...champsInCart];
-    const index = newChampsInCart.findIndex(
-      (champInCart) => champInCart.championName === champ.championName
-    );
-
-    if (index > -1) {
-      // only splice array when item is found
-      newChampsInCart.splice(index, 1); // 2nd parameter means remove one item only
-    }
-
-    setNewCart(newChampsInCart);
-  };
+  
 
   const currentChampionCount = (champ) => {
     return champsInCart.reduce((accum, item) => {

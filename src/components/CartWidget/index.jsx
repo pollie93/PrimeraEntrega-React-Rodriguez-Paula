@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-const CartWidget = ({ champsInCart, deleteCart }) => {
+const CartWidget = ({ champsInCart, deleteCart, handleDeleteChampion}) => {
   const [showCart, setShowCart] = useState(false);
 
   const showCarrito = () => {
@@ -14,11 +14,17 @@ const CartWidget = ({ champsInCart, deleteCart }) => {
 
   const groupChamps = () => {
     return champsInCart.reduce((accum, champ) => {
-      const champInAccum = accum.findIndex(
+      const champInAccumIndex = accum.findIndex(
         (cha) => cha.championName === champ.championName
       );
-      if (champInAccum > -1) {
-      }
+
+      if (champInAccumIndex > -1) {
+        accum[champInAccumIndex].quantity = accum[champInAccumIndex].quantity + 1;
+        return accum;
+      };
+
+      accum.push({...champ, quantity: 1});
+      return accum;
     }, []);
   };
 
@@ -45,13 +51,17 @@ const CartWidget = ({ champsInCart, deleteCart }) => {
           </div>
           {!!champsInCart &&
             !!Array.isArray(champsInCart) &&
-            !!champsInCart.length &&
-            champsInCart.map((champArray, idx) => {
+            !!champsInCart.length ?
+            groupChamps(champsInCart).map((champArray, idx) => {
               return (
                 <div key={idx.toString()} className="cart-checkout-content">
                   <div className="cart-checkout-text-information">
                     <p>Nombre:{champArray.championName}</p>
-                    <p>Esencia Azul:{champArray.championCost}</p>
+                    <p>Esencia Azul:{champArray.championCost * champArray.quantity}</p>
+                    <p>Cantidad:{champArray.quantity}</p>
+                    <div className="icon-cart-trash" onClick={() => handleDeleteChampion(champArray)}>
+                    Eliminar 1
+                    </div>
                   </div>
                   <img
                     className="cart-checkout-image"
@@ -60,7 +70,8 @@ const CartWidget = ({ champsInCart, deleteCart }) => {
                   />
                 </div>
               );
-            })}
+            }): 
+            <p className="cart-checkout-text-information">Tu carrito está vacío!</p>}
 
           <div className="footer-cart">
             <p className="cart-full-blue-essence">
@@ -69,11 +80,11 @@ const CartWidget = ({ champsInCart, deleteCart }) => {
           </div>
           {/* <button className="finalize-purchase">Finalizar compra</button> */}
           <Link
-            to="/formulario"
+            to="/cart"
             //className="link container-navBar-logo finish-purchase"
             className="finish-purchase"
           >
-            Finalizar compra
+            Ir al carrito
           </Link>
         </div>
       )}

@@ -8,6 +8,7 @@ import Form from "./components/Form";
 import "./styles.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { collection, query, getDocs } from "firebase/firestore";
+import Cart from "./components/Cart";
 
 const App = () => {
   const [champsInCart, setChampsInCart] = useState([]);
@@ -31,13 +32,26 @@ const App = () => {
     setChampsInCart([...champsInCart, champion]);
   };
   const setNewCart = (newCart) => setChampsInCart(newCart);
+  const handleDeleteChampion = (champ) => {
+    if (!champsInCart?.length) return null;
+    const newChampsInCart = [...champsInCart];
+    const index = newChampsInCart.findIndex(
+      (champInCart) => champInCart.championName === champ.championName
+    );
+
+    if (index > -1) {
+      newChampsInCart.splice(index, 1);
+    }
+
+    setNewCart(newChampsInCart);
+  };
   const deleteCart = () => {
     setChampsInCart([]);
   };
 
   return (
     <Router>
-      <NavBar champsInCart={champsInCart} deleteCart={deleteCart} />
+      <NavBar champsInCart={champsInCart} deleteCart={deleteCart} handleDeleteChampion={handleDeleteChampion} />
       <Routes>
         <Route
           path="/"
@@ -51,7 +65,7 @@ const App = () => {
               champsInCart={champsInCart}
               champions={champsArray}
               addToCart={addToCart}
-              setNewCart={setNewCart}
+              handleDeleteChampion={handleDeleteChampion}
             />
           }
         />
@@ -59,9 +73,14 @@ const App = () => {
           path="/item/:championName"
           element={<ItemDetailContainer champions={champsArray} />}
         />
+         <Route
+          path="/cart"
+          element={<Cart champsInCart={champsInCart} />}
+        />
         <Route
           path="/formulario"
-          element={<Form champsInCart={champsInCart} />}
+          element={<Form deleteCart={deleteCart} champsInCart={champsInCart} 
+          />}
         />
       </Routes>
     </Router>
